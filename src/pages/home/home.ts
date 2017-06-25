@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
 
     public scan(): void {
         this.barcodeScanner.scan().then((barcodeData) => {
-            this.navigateToDetailssPage(null);
+            this.getArticleData(barcodeData);
         }, () => {
             this.notificationService.alert("No se puede leer el código de barras. Inténtelo nuevamente por favor.",
                 "¡Error!");
@@ -49,7 +49,6 @@ export class HomePage implements OnInit {
             .subscribe((response: any) => {
                 if (!response.cancelled) {
                     this.getArticleData(response.text);
-
                 }
             });
     }
