@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Detalles del producto</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="article">
+        <img [src]="articleImage"/>
+        <ion-card-content>
+            <ion-card-title>
+                {{article.descripcion}}
+            </ion-card-title>
+            <p>
+                {{article.descripcion}}
+            </p>
+        </ion-card-content>
+        <ion-row>
+            <ion-col>
+                <button ion-button
+                        icon-left
+                        clear
+                        small>
+                    <ion-icon name="cash"></ion-icon>
+                    <div>${{article.precio}}</div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button
+                        icon-left
+                        clear
+                        small>
+                    <ion-icon name="logo-buffer"></ion-icon>
+                    <div>{{article.cantidad}} en stock</div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button
+                        icon-left
+                        clear
+                        small
+                        (click)="navigateToStock()">
+                    <ion-icon name="list-box"></ion-icon>
+                    <div>Sucursales</div>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+</ion-content>

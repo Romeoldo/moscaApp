@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Seleccione sucursal</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list radio-group>
+        <ion-item *ngFor="let item of items$ | async">
+            <ion-label>{{item.sucursal}}</ion-label>
+            <ion-radio [value]="item.idsucursal"
+                       [checked]="isSelected(item.idsucursal)"
+                       (ionSelect)="onBranchSelected(item.idsucursal)">
+            </ion-radio>
+        </ion-item>
+    </ion-list>
+</ion-content>

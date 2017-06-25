@@ -1,0 +1,26 @@
+<ion-content padding>
+    <div class="home-container">
+        <logo></logo>
+
+        <button ion-button
+                color="primary"
+                (click)="scan()">
+            Escanear producto
+        </button>
+
+        <button ion-button
+                color="secondary"
+                (click)="enterCode()">
+            Entrar c&oacute;digo
+        </button>
+    </div>
+
+    <ion-fab bottom
+             right>
+        <button ion-fab
+                mini
+                (click)="openBranchesModal()">
+            <ion-icon name="settings"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

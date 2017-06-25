@@ -1,0 +1,137 @@
+@mixin round($size) {
+    content: " ";
+    width: $size;
+    height: $size;
+    background-color: $base-color;
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    animation: change-background 4s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@mixin box-shadow($background, $spread: 2px) {
+    box-shadow: 0 0 $spread $background;
+}
+
+.logo {
+    width: 100%;
+    height: 0;
+    padding-bottom: 15%;
+    text-align: center;
+    margin-bottom: 45px;
+
+    &-sec {
+        height: 40px;
+        top: 0;
+        bottom: 0;
+        display: inline-block;
+        width: 23px;
+        background-color: $base-color;
+        @include box-shadow($white-transparent);
+        animation: change-background 4s infinite;
+        animation-timing-function: ease-in-out;
+
+        &.round {
+            position: relative;
+
+            &:before {
+                @include round(23px);
+                bottom: -9px;
+            }
+
+            &:after {
+                @include round(23px);
+                top: -9px;
+            }
+        }
+
+        &-1 {
+            transform: rotate(90deg);
+            top: -15px;
+            left: 7px;
+        }
+
+        &-2,
+        &-3,
+        &-4 {
+            transform: rotate(35deg);
+            margin-right: 2px;
+        }
+
+        &-5 {
+            height: 23px;
+            border-radius: 50%;
+            position: relative;
+            top: 6px;
+            left: -9px;
+            animation: highlight 2s infinite;
+        }
+    }
+}
+
+@keyframes highlight {
+    0% {
+        @include box-shadow($white-transparent, 0);
+    }
+    30% {
+        @include box-shadow($white-transparent, 4px);
+    }
+    60% {
+        @include box-shadow($white-transparent, 8px);
+    }
+
+    90% {
+        @include box-shadow($white-transparent, 4px);
+    }
+
+    100% {
+        @include box-shadow($white-transparent, 0);
+    }
+}
+
+@keyframes change-background {
+    0% {
+        background: $base-color
+    }
+
+    10% {
+        background: lighten($base-color, 5%);
+    }
+
+    20% {
+        background: lighten($base-color, 10%);
+    }
+
+    30% {
+        background: lighten($base-color, 15%);
+    }
+
+    40% {
+        background: lighten($base-color, 20%);
+    }
+
+    50% {
+        background: lighten($base-color, 25%);
+    }
+
+    60% {
+        background: lighten($base-color, 20%);
+    }
+
+    70% {
+        background: lighten($base-color, 15%);
+    }
+
+    80% {
+        background: lighten($base-color, 10%);
+    }
+
+    90% {
+        background: lighten($base-color, 5%);
+    }
+
+    100% {
+        background: $base-color;
+    }
+}
